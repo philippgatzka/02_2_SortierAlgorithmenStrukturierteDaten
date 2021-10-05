@@ -8,121 +8,516 @@ import java.util.stream.Stream;
  */
 public class App {
     public static void main(String[] args) {
-        Person[] people = prep();
+        Alpha[] alpha = prep();
 
         System.out.println("Unsorted");
-        Stream.of(people).limit(50).forEach(System.out::println);
-        Arrays.sort(people,Person.comparatorA);
-        System.out.println("Sorted Shoe-size and Height");
-        Stream.of(people).limit(50).forEach(System.out::println);
-        Arrays.sort(people,Person.comparatorB);
-        System.out.println("Sorted with Name and Age");
-        Stream.of(people).limit(50).forEach(System.out::println);
+        Stream.of(alpha).forEach(System.out::println);
+        System.out.println("Sorted");
+        Arrays.sort(alpha,Alpha.comparator);
+        Stream.of(alpha).forEach(System.out::println);
     }
 
-    public static Person[] prep() {
-        Person[] persons = new Person[100];
-        persons[0] = new Person("Zenia", "Estes", 1.82, 37, 37);
-        persons[1] = new Person("Tatyana", "Ramirez", 1.65, 37, 40);
-        persons[2] = new Person("Abbot", "Burris", 1.82, 38, 38);
-        persons[3] = new Person("Keaton", "Riddle", 1.53, 43, 29);
-        persons[4] = new Person("Dorian", "Rasmussen", 1.57, 38, 28);
-        persons[5] = new Person("Kylee", "Boyd", 1.66, 41, 27);
-        persons[6] = new Person("Ferdinand", "Hernandez", 1.82, 44, 30);
-        persons[7] = new Person("Jorden", "Gamble", 1.68, 37, 23);
-        persons[8] = new Person("Evelyn", "Pugh", 1.55, 41, 20);
-        persons[9] = new Person("Tamara", "Bradshaw", 1.63, 42, 30);
-        persons[10] = new Person("Ezekiel", "Morrow", 1.55, 41, 25);
-        persons[11] = new Person("Sara", "Warner", 1.8, 40, 36);
-        persons[12] = new Person("Driscoll", "Burch", 1.74, 35, 23);
-        persons[13] = new Person("Charissa", "Fulton", 1.91, 42, 28);
-        persons[14] = new Person("Hilel", "Tyson", 1.52, 41, 23);
-        persons[15] = new Person("Warren", "Holmes", 1.86, 42, 21);
-        persons[16] = new Person("Aladdin", "Meyer", 1.76, 42, 34);
-        persons[17] = new Person("Geoffrey", "Lindsay", 1.67, 39, 39);
-        persons[18] = new Person("Bevis", "Wilcox", 1.59, 43, 29);
-        persons[19] = new Person("Kylee", "Barber", 1.61, 44, 39);
-        persons[20] = new Person("Gretchen", "Mcintyre", 1.68, 44, 31);
-        persons[21] = new Person("Lucius", "Bauer", 1.83, 42, 28);
-        persons[22] = new Person("Lillian", "Welch", 1.76, 44, 29);
-        persons[23] = new Person("Steel", "Hoffman", 1.66, 39, 35);
-        persons[24] = new Person("Brenden", "Wong", 1.7, 40, 23);
-        persons[25] = new Person("Michael", "Boyd", 1.53, 38, 25);
-        persons[26] = new Person("Aurelia", "Holt", 1.92, 35, 23);
-        persons[27] = new Person("Mercedes", "Arnold", 1.66, 44, 32);
-        persons[28] = new Person("Patience", "Vaughan", 1.54, 44, 38);
-        persons[29] = new Person("Lionel", "Day", 1.5, 41, 24);
-        persons[30] = new Person("Orlando", "Compton", 1.85, 37, 33);
-        persons[31] = new Person("Cora", "Holmes", 1.74, 41, 32);
-        persons[32] = new Person("Lydia", "Mccormick", 1.73, 38, 33);
-        persons[33] = new Person("Lysandra", "Rollins", 1.61, 44, 24);
-        persons[34] = new Person("Brenda", "Mercer", 1.6, 44, 39);
-        persons[35] = new Person("Roary", "Ruiz", 1.88, 38, 28);
-        persons[36] = new Person("Kyra", "Roy", 1.86, 42, 39);
-        persons[37] = new Person("Maggy", "Ray", 1.76, 40, 28);
-        persons[38] = new Person("Darrel", "Browning", 1.79, 38, 32);
-        persons[39] = new Person("Hanae", "Brock", 1.59, 44, 24);
-        persons[40] = new Person("Kaye", "Day", 1.54, 42, 30);
-        persons[41] = new Person("Lev", "Parks", 1.52, 37, 31);
-        persons[42] = new Person("Brenden", "Fields", 1.74, 38, 18);
-        persons[43] = new Person("Noel", "Sharp", 1.9, 35, 21);
-        persons[44] = new Person("Hamilton", "Poole", 1.61, 42, 29);
-        persons[45] = new Person("Jonah", "Roach", 1.71, 37, 38);
-        persons[46] = new Person("Joel", "Rasmussen", 1.57, 42, 27);
-        persons[47] = new Person("Rudyard", "Bass", 1.59, 44, 35);
-        persons[48] = new Person("Simone", "Adkins", 1.58, 42, 37);
-        persons[49] = new Person("Quintessa", "Ball", 1.79, 40, 27);
-        persons[50] = new Person("Caleb", "Barton", 1.84, 43, 23);
-        persons[51] = new Person("Cassady", "Britt", 1.65, 41, 18);
-        persons[52] = new Person("Chancellor", "Roberts", 1.84, 38, 24);
-        persons[53] = new Person("Moses", "Kent", 1.66, 41, 29);
-        persons[54] = new Person("Ivy", "Mathis", 1.87, 44, 26);
-        persons[55] = new Person("Yuri", "Boyd", 1.67, 42, 27);
-        persons[56] = new Person("Oliver", "Hancock", 1.91, 36, 37);
-        persons[57] = new Person("Rogan", "Travis", 1.94, 43, 21);
-        persons[58] = new Person("Teagan", "Christensen", 1.92, 36, 34);
-        persons[59] = new Person("Drew", "Mccray", 1.57, 37, 37);
-        persons[60] = new Person("Lillith", "Perry", 1.85, 35, 19);
-        persons[61] = new Person("Paki", "Beasley", 1.55, 40, 36);
-        persons[62] = new Person("Ignatius", "Hancock", 1.83, 36, 36);
-        persons[63] = new Person("Regina", "Faulkner", 1.64, 38, 28);
-        persons[64] = new Person("Garrison", "Murphy", 1.59, 36, 31);
-        persons[65] = new Person("Clark", "Hopkins", 1.67, 40, 40);
-        persons[66] = new Person("Warren", "Wise", 1.81, 44, 32);
-        persons[67] = new Person("Maggy", "Collins", 1.87, 38, 36);
-        persons[68] = new Person("Amela", "Solomon", 1.71, 42, 36);
-        persons[69] = new Person("Maryam", "Perry", 1.67, 36, 34);
-        persons[70] = new Person("Deacon", "Perry", 1.84, 43, 20);
-        persons[71] = new Person("TaShya", "Sutton", 1.51, 44, 25);
-        persons[72] = new Person("Stacey", "Glover", 1.56, 42, 20);
-        persons[73] = new Person("Shay", "Wheeler", 1.76, 39, 24);
-        persons[74] = new Person("Carla", "Velazquez", 1.61, 42, 30);
-        persons[75] = new Person("Chase", "Boyd", 1.73, 38, 21);
-        persons[76] = new Person("Keegan", "Shannon", 1.86, 43, 19);
-        persons[77] = new Person("Ciaran", "Farmer", 1.94, 36, 31);
-        persons[78] = new Person("Tyrone", "Moreno", 1.84, 42, 33);
-        persons[79] = new Person("Sierra", "Burt", 1.8, 44, 18);
-        persons[80] = new Person("Judah", "Barnes", 1.77, 39, 35);
-        persons[81] = new Person("Maxwell", "Strong", 1.61, 37, 22);
-        persons[82] = new Person("Tashya", "Garner", 1.83, 40, 31);
-        persons[83] = new Person("Jaquelyn", "Osborne", 1.74, 42, 18);
-        persons[84] = new Person("Leandra", "Wilkins", 1.79, 37, 31);
-        persons[85] = new Person("Colt", "Hoffman", 1.94, 41, 33);
-        persons[86] = new Person("Calvin", "Ingram", 1.66, 36, 25);
-        persons[87] = new Person("Pamela", "Atkinson", 1.67, 44, 38);
-        persons[88] = new Person("Nadine", "Russo", 1.74, 42, 37);
-        persons[89] = new Person("Flavia", "Logan", 1.83, 41, 31);
-        persons[90] = new Person("Duncan", "Tate", 1.72, 40, 39);
-        persons[91] = new Person("Yasir", "Cobb", 1.74, 43, 25);
-        persons[92] = new Person("Elijah", "Anderson", 1.76, 40, 33);
-        persons[93] = new Person("Gail", "Wong", 1.53, 44, 19);
-        persons[94] = new Person("Macy", "Moss", 1.5, 39, 34);
-        persons[95] = new Person("Callum", "Day", 1.82, 44, 21);
-        persons[96] = new Person("Kylan", "Walls", 1.64, 39, 26);
-        persons[97] = new Person("Cynthia", "Black", 1.72, 42, 37);
-        persons[98] = new Person("Natalie", "Hancock", 1.54, 42, 34);
-        persons[99] = new Person("Walker", "Justice", 1.66, 39, 27);
-        return persons;
+    public static Alpha[] prep() {
+        return new Alpha[]{
+                new Alpha("TXW","42CEF","2EW"),
+                new Alpha("VYL","43XVX","1TV"),
+                new Alpha("OPL","47KMP","4DD"),
+                new Alpha("MFW","11AAY","6CR"),
+                new Alpha("UTR","45VLI","8SD"),
+                new Alpha("VJG","26PDD","6OU"),
+                new Alpha("HIB","61NOP","8DD"),
+                new Alpha("KRQ","35LCM","3HJ"),
+                new Alpha("FTD","44ZNR","2OS"),
+                new Alpha("TJF","28LVA","0EE"),
+                new Alpha("XQM","59ZMG","4IM"),
+                new Alpha("EKE","34JWK","8GI"),
+                new Alpha("HSJ","40ISL","1FN"),
+                new Alpha("KUQ","36YWE","6KG"),
+                new Alpha("OUD","11JXU","1NW"),
+                new Alpha("PPL","28PBK","3CT"),
+                new Alpha("ISY","16IBS","5RU"),
+                new Alpha("KCN","14PVI","6UR"),
+                new Alpha("IKZ","18FMM","5KP"),
+                new Alpha("PAI","41XOR","8NG"),
+                new Alpha("KIW","67WSY","7TC"),
+                new Alpha("SLJ","67DIY","6QR"),
+                new Alpha("HTS","25KYU","2KU"),
+                new Alpha("EJG","36JEZ","1DF"),
+                new Alpha("ZVW","58DPX","4PA"),
+                new Alpha("TCJ","78DTY","1BB"),
+                new Alpha("VMC","92JIC","1PP"),
+                new Alpha("VTB","16SGS","1BA"),
+                new Alpha("OMZ","36WLL","8XI"),
+                new Alpha("EAY","78YKC","6HH"),
+                new Alpha("NWI","33BXS","6GN"),
+                new Alpha("RPO","37RNX","5LW"),
+                new Alpha("QGH","45WRA","2JX"),
+                new Alpha("XQB","05WJM","5FT"),
+                new Alpha("GNG","17XWG","2UY"),
+                new Alpha("ATM","22PCB","6MG"),
+                new Alpha("ZXI","63DNC","7XO"),
+                new Alpha("DQM","61QTO","8MF"),
+                new Alpha("HRJ","15KWE","1HR"),
+                new Alpha("XEN","72MRW","6CH"),
+                new Alpha("OWW","47BVG","6JH"),
+                new Alpha("RKQ","88JYB","3DI"),
+                new Alpha("XLB","25ROO","1SG"),
+                new Alpha("ZDC","55VOY","6CQ"),
+                new Alpha("WPT","87XRF","5EU"),
+                new Alpha("KLX","73KVK","1VX"),
+                new Alpha("RSO","02TBI","8SH"),
+                new Alpha("SVK","65PTL","8DQ"),
+                new Alpha("BFJ","15QQG","0FR"),
+                new Alpha("KBN","29RUX","2IG"),
+                new Alpha("GSU","42SZY","6BT"),
+                new Alpha("YER","23GAC","3HS"),
+                new Alpha("EOM","14YIQ","8NX"),
+                new Alpha("HNN","83USY","1XW"),
+                new Alpha("DHR","88UUH","6IW"),
+                new Alpha("TCU","31VIN","1SR"),
+                new Alpha("IOS","75TXT","0FN"),
+                new Alpha("UFO","78YJB","6WP"),
+                new Alpha("DDK","31BKL","4XD"),
+                new Alpha("OVL","40BNW","8VU"),
+                new Alpha("SWH","14EIC","1PP"),
+                new Alpha("TEJ","94TST","7EL"),
+                new Alpha("DIF","86FRW","3HB"),
+                new Alpha("NNT","92LWN","7PT"),
+                new Alpha("NIK","66VOB","8RO"),
+                new Alpha("COU","74VMH","1SU"),
+                new Alpha("IIW","05OLT","1VW"),
+                new Alpha("IGW","74IGT","0EI"),
+                new Alpha("JHX","37YDO","5SO"),
+                new Alpha("KOG","96KVR","7VH"),
+                new Alpha("QVR","71JBI","1GB"),
+                new Alpha("NMX","47GRK","5KW"),
+                new Alpha("FUA","83ONK","5FL"),
+                new Alpha("JRS","52QXQ","7QT"),
+                new Alpha("EBL","21TUX","4CV"),
+                new Alpha("UWR","22VFM","2UH"),
+                new Alpha("XLV","37CVG","7QF"),
+                new Alpha("SFV","15HVF","5CO"),
+                new Alpha("PND","42UPP","5HA"),
+                new Alpha("ZST","35SEB","1IL"),
+                new Alpha("DYN","66XDP","4DO"),
+                new Alpha("YQY","91WMB","7UL"),
+                new Alpha("CXR","28ZJE","7FK"),
+                new Alpha("MWJ","83HYF","6BS"),
+                new Alpha("QQU","58TQX","2JB"),
+                new Alpha("UIC","83EST","0LI"),
+                new Alpha("YLY","18YJW","4YX"),
+                new Alpha("ZTC","97YMV","7YN"),
+                new Alpha("ZQW","15AFB","3RK"),
+                new Alpha("HMO","89GQB","8RI"),
+                new Alpha("SRJ","70ZFL","2JF"),
+                new Alpha("TCM","68JHY","7XP"),
+                new Alpha("KGF","37EOR","5BQ"),
+                new Alpha("PDN","32UPH","1PW"),
+                new Alpha("WPK","58KIV","8NB"),
+                new Alpha("GCN","66RYF","7DR"),
+                new Alpha("GKR","84TMJ","4AS"),
+                new Alpha("PNZ","04VYT","5DP"),
+                new Alpha("OOR","87SDM","4KB"),
+                new Alpha("OJK","12HEC","5RG"),
+                new Alpha("UZV","71APG","5MD"),
+                new Alpha("WTS","12EKR","6DP"),
+                new Alpha("EBQ","09GRL","1KB"),
+                new Alpha("KBE","04OBV","5JO"),
+                new Alpha("WWF","22THL","1JO"),
+                new Alpha("GUD","17HHR","1WB"),
+                new Alpha("VYB","67UQY","9SG"),
+                new Alpha("MVB","02OVC","9BH"),
+                new Alpha("YEY","45ELU","2WY"),
+                new Alpha("ETM","44CJJ","4BZ"),
+                new Alpha("DHE","55QBL","7SC"),
+                new Alpha("JGA","80SZI","7LG"),
+                new Alpha("IML","43DXE","3PR"),
+                new Alpha("ENT","85XGU","8QL"),
+                new Alpha("SJE","85KIX","9TM"),
+                new Alpha("JYC","84YNS","9DQ"),
+                new Alpha("DHY","67ZIV","0GD"),
+                new Alpha("XIT","08ELL","8MT"),
+                new Alpha("WCT","31GBE","1ED"),
+                new Alpha("VQS","64MJX","6NS"),
+                new Alpha("EEC","88PLU","0TL"),
+                new Alpha("DQJ","26OXS","0UJ"),
+                new Alpha("SCF","17GXR","7OQ"),
+                new Alpha("EUC","83EHL","4QC"),
+                new Alpha("YGG","15LQS","8AK"),
+                new Alpha("MOM","15DGJ","4BF"),
+                new Alpha("NSO","82EJS","2BH"),
+                new Alpha("MPO","55TEY","1VX"),
+                new Alpha("FQH","61DRD","5KO"),
+                new Alpha("RCW","20MFN","7ZO"),
+                new Alpha("MJP","74NST","0QJ"),
+                new Alpha("BEB","50BOH","4KT"),
+                new Alpha("FUR","52YRY","5JW"),
+                new Alpha("YYF","47OJR","2DR"),
+                new Alpha("VJL","45DTE","1AC"),
+                new Alpha("IRR","73HCJ","2MJ"),
+                new Alpha("RFO","43FFN","7GI"),
+                new Alpha("EEB","62QYK","4JC"),
+                new Alpha("KWO","05HBY","4YU"),
+                new Alpha("BHC","60GCT","6KL"),
+                new Alpha("PRL","69MVF","1DM"),
+                new Alpha("KEN","30KSR","2MB"),
+                new Alpha("DMD","37SLC","5IX"),
+                new Alpha("GWM","28DJK","6KB"),
+                new Alpha("YWM","63YAD","5MU"),
+                new Alpha("PNP","68TNL","6ER"),
+                new Alpha("SHS","17KWV","8IC"),
+                new Alpha("GZJ","48DFG","9FH"),
+                new Alpha("CPH","69LMM","2CF"),
+                new Alpha("UJS","50URZ","8PI"),
+                new Alpha("GXP","18NFT","6NR"),
+                new Alpha("RSR","25NEK","3TS"),
+                new Alpha("MZA","16JEB","4RI"),
+                new Alpha("RLX","29VAM","5TR"),
+                new Alpha("MQU","62EOT","2HJ"),
+                new Alpha("OFS","71GGA","3VL"),
+                new Alpha("UXB","32BXP","3MI"),
+                new Alpha("MEJ","60HKX","1FZ"),
+                new Alpha("RSU","73VKQ","6MS"),
+                new Alpha("WDQ","22KBT","5FK"),
+                new Alpha("ICW","69CUU","8YB"),
+                new Alpha("FIH","07UGI","2RX"),
+                new Alpha("HMB","11ZYL","8RS"),
+                new Alpha("CYU","77ICY","6QA"),
+                new Alpha("GQE","88PHU","4RB"),
+                new Alpha("XYK","49JQA","6ZI"),
+                new Alpha("GGQ","33NEY","7SS"),
+                new Alpha("XGK","09JIU","9EU"),
+                new Alpha("EEV","53SDC","3VI"),
+                new Alpha("MKP","32FVM","1HK"),
+                new Alpha("SCO","06SRA","8QQ"),
+                new Alpha("BCY","80EME","6UN"),
+                new Alpha("VIQ","38GGR","1BY"),
+                new Alpha("KNF","15AQZ","8MB"),
+                new Alpha("OLK","17CMM","7PO"),
+                new Alpha("ITL","36YMY","1XT"),
+                new Alpha("FOR","95YXF","3FA"),
+                new Alpha("DUP","86JJB","3VH"),
+                new Alpha("UHE","50LDO","6YJ"),
+                new Alpha("CTN","69DPS","3QA"),
+                new Alpha("TGU","66VCI","5SD"),
+                new Alpha("LHE","80ZFB","5ZB"),
+                new Alpha("CQX","58VRH","1PW"),
+                new Alpha("DXJ","21XPG","6NW"),
+                new Alpha("TLW","89UWB","8ET"),
+                new Alpha("NKW","89QXE","5QF"),
+                new Alpha("GDN","80NPR","4IS"),
+                new Alpha("RHE","36XVD","0RU"),
+                new Alpha("AAW","03QHV","3XQ"),
+                new Alpha("LQK","54XSA","3PA"),
+                new Alpha("EDG","10IBX","4CF"),
+                new Alpha("LYS","74RKF","6WH"),
+                new Alpha("HVG","06OVW","4KB"),
+                new Alpha("QJY","32COW","6FR"),
+                new Alpha("QUK","73KYD","6GH"),
+                new Alpha("IDN","63WPQ","0AT"),
+                new Alpha("OKG","89VBH","3UT"),
+                new Alpha("ERR","68WTZ","4RT"),
+                new Alpha("NMH","31FNU","3JE"),
+                new Alpha("RVW","54ROV","4TP"),
+                new Alpha("DBC","62DNF","6IF"),
+                new Alpha("IFD","66KUV","8LY"),
+                new Alpha("VOC","98HPP","0HW"),
+                new Alpha("GJY","25BYS","7UM"),
+                new Alpha("EOJ","18YDU","2XP"),
+                new Alpha("EFW","24MKY","3WG"),
+                new Alpha("DOP","85SLE","7NV"),
+                new Alpha("SFZ","45PUX","6XP"),
+                new Alpha("YBN","92ZBC","7IM"),
+                new Alpha("WTX","04PIO","3VN"),
+                new Alpha("DJS","46BTE","3WX"),
+                new Alpha("HYW","59WWC","8UV"),
+                new Alpha("FCZ","68DEM","0BB"),
+                new Alpha("LOD","80NLK","3LU"),
+                new Alpha("YIO","19JQP","2IL"),
+                new Alpha("SMN","14HPM","1HB"),
+                new Alpha("BXQ","25FVT","1LE"),
+                new Alpha("XQY","82JID","6RB"),
+                new Alpha("TFT","58INY","8PV"),
+                new Alpha("PCE","26YYP","9IX"),
+                new Alpha("TYQ","93XAK","4HP"),
+                new Alpha("IQC","22KCY","9DD"),
+                new Alpha("ESK","31MOB","2ND"),
+                new Alpha("HKH","36JQM","6QC"),
+                new Alpha("ELQ","13TFS","2XX"),
+                new Alpha("RZH","48CTT","3IG"),
+                new Alpha("FME","86OMN","0BP"),
+                new Alpha("YGB","12BYO","8YN"),
+                new Alpha("ZHL","44KQW","1PJ"),
+                new Alpha("ITL","84OXQ","7FG"),
+                new Alpha("JOM","32VNQ","3NO"),
+                new Alpha("XSF","60SUT","6VM"),
+                new Alpha("DNY","75CBO","8GM"),
+                new Alpha("KOA","43TQA","7BE"),
+                new Alpha("OVM","54WFI","7JH"),
+                new Alpha("ONZ","85YQO","8CJ"),
+                new Alpha("YOV","74ERJ","7OI"),
+                new Alpha("WSO","22MST","3KN"),
+                new Alpha("XLA","88TPG","6QG"),
+                new Alpha("JVY","27ALE","6BP"),
+                new Alpha("VIJ","45EIQ","2UT"),
+                new Alpha("JSE","82VXO","5VK"),
+                new Alpha("EYJ","76JWS","6PI"),
+                new Alpha("UWN","82ROO","3FD"),
+                new Alpha("NNR","92RIN","2SC"),
+                new Alpha("MWU","30FFM","5UP"),
+                new Alpha("QJS","36ORR","4LJ"),
+                new Alpha("AZN","54SBE","2LW"),
+                new Alpha("ZQN","33VUY","1NT"),
+                new Alpha("EVD","65ZHO","9WS"),
+                new Alpha("DMP","24PTV","3TQ"),
+                new Alpha("TYY","91GTK","5KE"),
+                new Alpha("SAL","37KEH","5QZ"),
+                new Alpha("AWP","68REV","7WG"),
+                new Alpha("CVW","20XXH","5PJ"),
+                new Alpha("HOQ","63YND","2YX"),
+                new Alpha("XVZ","96DMI","5MV"),
+                new Alpha("BRF","24HEO","2AG"),
+                new Alpha("CKO","15DOL","9UL"),
+                new Alpha("YWZ","62RKP","9ZU"),
+                new Alpha("DYU","50ZXJ","4RO"),
+                new Alpha("TTZ","61PSJ","6KF"),
+                new Alpha("VKU","35SGM","4NQ"),
+                new Alpha("IUR","73VZP","0NB"),
+                new Alpha("OXC","69SJG","4ZN"),
+                new Alpha("ONP","35UDF","5DO"),
+                new Alpha("BWG","31SNT","1VV"),
+                new Alpha("IOS","21MDQ","7WL"),
+                new Alpha("JDC","98YME","8YR"),
+                new Alpha("EWT","32AOR","6OU"),
+                new Alpha("CMK","94UCJ","1RL"),
+                new Alpha("MGI","10CRJ","0BI"),
+                new Alpha("FYK","35OMZ","8PL"),
+                new Alpha("MVU","94ONT","2PF"),
+                new Alpha("RAW","72EWC","2EV"),
+                new Alpha("WSU","23GCD","0JB"),
+                new Alpha("BLB","02ZEY","6GF"),
+                new Alpha("WNJ","45JFW","3CM"),
+                new Alpha("ISR","62FJY","3ES"),
+                new Alpha("IFX","24RJY","5AL"),
+                new Alpha("FFR","15MPX","8TA"),
+                new Alpha("CNF","65BIX","1YA"),
+                new Alpha("XQS","84ATJ","8VX"),
+                new Alpha("KHX","06GOD","7KK"),
+                new Alpha("KQU","39JEP","8PD"),
+                new Alpha("JWR","45WFK","5BT"),
+                new Alpha("AXX","56DCK","2QJ"),
+                new Alpha("AWJ","00GTC","6NR"),
+                new Alpha("SDG","08UET","2AS"),
+                new Alpha("MFP","33ARS","6SF"),
+                new Alpha("WLV","71OUM","6CQ"),
+                new Alpha("ROM","78IGB","4NP"),
+                new Alpha("TKY","76FER","1ES"),
+                new Alpha("YLQ","25FSB","3NY"),
+                new Alpha("SAD","71DUW","3CS"),
+                new Alpha("EDY","52JBT","4DH"),
+                new Alpha("GDP","36DRQ","2UK"),
+                new Alpha("AMZ","97SLQ","6FC"),
+                new Alpha("SMF","72FDI","7VD"),
+                new Alpha("GSI","37NKG","8WA"),
+                new Alpha("YFW","31IIT","3UV"),
+                new Alpha("WNY","85HMM","5OB"),
+                new Alpha("CLQ","22QMK","7CW"),
+                new Alpha("JLC","55QOM","8QN"),
+                new Alpha("SOM","28WSD","9IL"),
+                new Alpha("MJN","95RFS","7CB"),
+                new Alpha("PES","67YVN","5RX"),
+                new Alpha("GGG","21YOT","4DA"),
+                new Alpha("BXP","95CAU","6UC"),
+                new Alpha("RER","64MCP","2SC"),
+                new Alpha("DCX","33NEO","4LR"),
+                new Alpha("XFR","67RJG","7TQ"),
+                new Alpha("NWQ","59KKP","1GQ"),
+                new Alpha("MFR","46NIT","4EI"),
+                new Alpha("MAK","16JFT","9XF"),
+                new Alpha("XLY","60STB","2FF"),
+                new Alpha("VWK","30UDL","1FR"),
+                new Alpha("UPS","43TCI","5QT"),
+                new Alpha("FND","62OWK","3WN"),
+                new Alpha("GLL","03YXK","8CH"),
+                new Alpha("HWU","31QOO","1VD"),
+                new Alpha("UFO","94TFH","7RY"),
+                new Alpha("SMR","05ENP","5OW"),
+                new Alpha("XGG","72HVW","0NG"),
+                new Alpha("OMJ","31QPP","4TO"),
+                new Alpha("VPR","41CUP","7HG"),
+                new Alpha("FSU","25XUS","0IF"),
+                new Alpha("AJH","72UFC","3FO"),
+                new Alpha("MUL","52FHK","1YY"),
+                new Alpha("FRC","38SBL","7JL"),
+                new Alpha("JWL","13QDA","1GP"),
+                new Alpha("JII","75VJJ","8PV"),
+                new Alpha("PCW","18WIG","7IU"),
+                new Alpha("SUN","15WEP","8AT"),
+                new Alpha("LVW","08LBJ","5NA"),
+                new Alpha("RUT","73WQY","2PD"),
+                new Alpha("IUY","42NQW","0HW"),
+                new Alpha("NWG","78AEX","2HM"),
+                new Alpha("EWM","25TNE","3GO"),
+                new Alpha("EAG","49NOM","3KV"),
+                new Alpha("FLB","78NCF","1EJ"),
+                new Alpha("PEM","68GFQ","4YB"),
+                new Alpha("SKI","59RUI","4FS"),
+                new Alpha("WGN","94BYL","5WB"),
+                new Alpha("VLF","55SRX","2RL"),
+                new Alpha("GNR","71COV","8HE"),
+                new Alpha("MXL","94GFJ","2PX"),
+                new Alpha("IJF","82RRW","4JM"),
+                new Alpha("TPN","49PCA","9KS"),
+                new Alpha("UQH","97RKG","7QI"),
+                new Alpha("OHY","85HYO","1UG"),
+                new Alpha("UPC","92SRS","9EK"),
+                new Alpha("RZN","37QKZ","7UJ"),
+                new Alpha("TVZ","75OFV","2PV"),
+                new Alpha("FBP","13XUO","6CC"),
+                new Alpha("OQG","47TPS","0MG"),
+                new Alpha("GOU","31OIH","9KI"),
+                new Alpha("MJU","15GQG","8GA"),
+                new Alpha("YYL","17EXB","7HV"),
+                new Alpha("EHF","23PNB","8AU"),
+                new Alpha("XKW","35IOM","3YP"),
+                new Alpha("WXJ","17SHB","5HH"),
+                new Alpha("NWM","72OZW","7IS"),
+                new Alpha("QHG","85XXJ","1OJ"),
+                new Alpha("LDV","84EXQ","3HV"),
+                new Alpha("XWN","01XMW","1OD"),
+                new Alpha("YDC","26VSS","6PH"),
+                new Alpha("YTP","61EQA","4HS"),
+                new Alpha("BVL","07RKO","5PG"),
+                new Alpha("DEB","56NMY","7OC"),
+                new Alpha("MPD","24XCP","7FB"),
+                new Alpha("HUE","78WPY","6UF"),
+                new Alpha("GCT","20BWE","5CB"),
+                new Alpha("NTC","92RWJ","7LK"),
+                new Alpha("ERS","77GPC","6UI"),
+                new Alpha("QDP","91MVU","0CI"),
+                new Alpha("IEC","24CKS","6KQ"),
+                new Alpha("KJR","75YKP","1QK"),
+                new Alpha("BOO","81EGH","2BB"),
+                new Alpha("NBC","62FZR","6ZT"),
+                new Alpha("RWN","43CCP","1QD"),
+                new Alpha("LHW","63FIR","7VT"),
+                new Alpha("NHD","53HSX","8WC"),
+                new Alpha("IGV","38PPS","1GS"),
+                new Alpha("AVG","42EFT","1TO"),
+                new Alpha("FLK","52YOV","2UK"),
+                new Alpha("SQI","97XXS","8SQ"),
+                new Alpha("YLY","00GEY","7GX"),
+                new Alpha("TYK","46PGX","2BE"),
+                new Alpha("RTP","16TRS","5JP"),
+                new Alpha("ALE","73UEM","2VL"),
+                new Alpha("SWP","29RLV","3PG"),
+                new Alpha("ADV","75RZW","1XG"),
+                new Alpha("LKN","38ZYM","6OC"),
+                new Alpha("FGP","28VLQ","8ZN"),
+                new Alpha("HUV","98UDM","2IA"),
+                new Alpha("KDN","22QMI","8XQ"),
+                new Alpha("QYJ","32RSL","2NF"),
+                new Alpha("CCK","94XYX","0GP"),
+                new Alpha("GLB","66MJO","4TQ"),
+                new Alpha("JOY","85QRE","5TA"),
+                new Alpha("CHO","13UEK","4CV"),
+                new Alpha("OUD","83DEO","8PL"),
+                new Alpha("JYM","95LTD","0WH"),
+                new Alpha("WQF","66PHP","1LJ"),
+                new Alpha("JVS","81WXT","4ND"),
+                new Alpha("DTL","78COM","7FZ"),
+                new Alpha("HIO","63LTW","3ZW"),
+                new Alpha("CTD","81DLF","3HV"),
+                new Alpha("QUF","76ALB","6XQ"),
+                new Alpha("GNO","38TPG","0AL"),
+                new Alpha("EUD","58YYS","7ZR"),
+                new Alpha("TWR","62EAR","6JT"),
+                new Alpha("LJA","50CLW","4XB"),
+                new Alpha("HBT","38NEQ","0RI"),
+                new Alpha("OYC","64LGM","9ZU"),
+                new Alpha("IPN","95CMW","6GE"),
+                new Alpha("XSN","74RSQ","4FB"),
+                new Alpha("XNO","18BGH","4VU"),
+                new Alpha("EFJ","57ICH","7GV"),
+                new Alpha("RXC","84TEB","4EA"),
+                new Alpha("TLA","15FIJ","5QU"),
+                new Alpha("TSD","47VNX","2EQ"),
+                new Alpha("KBB","10JLY","1YM"),
+                new Alpha("PNK","71PBU","0ZQ"),
+                new Alpha("GCG","36FYM","5DC"),
+                new Alpha("IMQ","08PWK","7NR"),
+                new Alpha("QHI","77KJC","1EC"),
+                new Alpha("BLG","34GLN","0DI"),
+                new Alpha("BPT","21SAQ","7KJ"),
+                new Alpha("EON","15RUG","1JL"),
+                new Alpha("ZMZ","40PTY","2EE"),
+                new Alpha("CCZ","90HVX","4BB"),
+                new Alpha("JFL","74DMK","3KU"),
+                new Alpha("GFM","28FBL","8CZ"),
+                new Alpha("BPS","14HVI","4JS"),
+                new Alpha("UHS","21UDE","0BP"),
+                new Alpha("RMA","65KMR","2IY"),
+                new Alpha("MJO","41OMJ","9NF"),
+                new Alpha("HKF","73IEL","1HV"),
+                new Alpha("CRB","65QJH","6SF"),
+                new Alpha("JND","37MPW","8QM"),
+                new Alpha("KFE","56VQO","5XW"),
+                new Alpha("ILN","40TEP","2EW"),
+                new Alpha("ZUV","81YNF","6BO"),
+                new Alpha("EKU","53FHN","2LG"),
+                new Alpha("CNM","85EIR","4OD"),
+                new Alpha("MNN","48RDP","7HR"),
+                new Alpha("OAS","74HUC","4FO"),
+                new Alpha("ZTM","21IRL","1JQ"),
+                new Alpha("VSX","31YFI","6KX"),
+                new Alpha("HCN","48LLJ","8ZH"),
+                new Alpha("TTD","74XLJ","2NS"),
+                new Alpha("QEU","80ZWH","1JO"),
+                new Alpha("RUW","60YIZ","9MJ"),
+                new Alpha("RVF","31SGL","4OU"),
+                new Alpha("XTN","31JQY","3JW"),
+                new Alpha("YLY","16CZU","5CQ"),
+                new Alpha("QHC","27FHB","3CT"),
+                new Alpha("GPN","15REA","5RC"),
+                new Alpha("CVC","12QFO","8TN"),
+                new Alpha("YYU","73QUL","1PB"),
+                new Alpha("DUO","95VKL","2OM"),
+                new Alpha("MJS","14YYX","1RL"),
+                new Alpha("RYM","44ETF","5MC"),
+                new Alpha("CHA","33LDI","3OP"),
+                new Alpha("BNJ","13SFO","4BC"),
+                new Alpha("MFV","90XWW","2GF"),
+                new Alpha("YDK","88BJW","6FB"),
+                new Alpha("NNO","80TUG","0KY"),
+                new Alpha("QLH","48MRM","3ZD"),
+                new Alpha("OMO","59OIN","9DS"),
+                new Alpha("CHI","81FXD","5YC"),
+                new Alpha("ZIX","59WTG","3DU"),
+                new Alpha("DPL","23WTZ","5JE"),
+                new Alpha("XEL","33UBB","4KM"),
+                new Alpha("LKU","85CBI","1YG"),
+                new Alpha("VLQ","56KHR","7YK"),
+                new Alpha("AFR","74RWR","4CB"),
+                new Alpha("FBC","57GEY","6JQ"),
+                new Alpha("KLD","92QGC","2IX"),
+                new Alpha("EFD","52LKJ","7ZF"),
+                new Alpha("VTK","30TNE","6TF"),
+                new Alpha("BLF","30XPH","9CD"),
+                new Alpha("XMR","97FOY","0IU"),
+                new Alpha("MFQ","93RJT","7UH"),
+                new Alpha("SLO","68YQO","5ZL"),
+                new Alpha("XMO","14TJE","0LJ"),
+                new Alpha("FSS","51TES","3ST"),
+                new Alpha("OJJ","77FSZ","8OF"),
+                new Alpha("TMI","14QXS","8BP"),
+                new Alpha("XQH","48HUQ","6FY"),
+                new Alpha("JSS","70XQG","1DG"),
+                new Alpha("OET","82OUU","2VY"),
+                new Alpha("CNY","91TXP","6JM"),
+                new Alpha("TPK","52ECA","7WA"),
+                new Alpha("LJB","57SOE","9TD")
+
+        };
     }
 
 }
