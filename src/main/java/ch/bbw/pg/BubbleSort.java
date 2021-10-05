@@ -7,7 +7,7 @@ package ch.bbw.pg;
  */
 public class BubbleSort {
 
-    public static Person[] sort(Person[] people) {
+    public static void sort(Person[] people) {
         boolean sorted = false;
         while (!sorted) {
             for (int i = 0; i < people.length - 1; i++) {
@@ -18,7 +18,7 @@ public class BubbleSort {
                 String s2 = second.getLastname();
                 int val = s1.compareTo(s2);
                 boolean change = val > 0;
-                if (change){
+                if (change) {
                     people[i] = second;
                     people[i + 1] = first;
                     sorted = false;
@@ -26,7 +26,6 @@ public class BubbleSort {
                 }
             }
         }
-        return people;
     }
 
 

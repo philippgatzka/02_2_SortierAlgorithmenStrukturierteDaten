@@ -1,6 +1,5 @@
 package ch.bbw.pg;
 
-import java.util.Arrays;
 import java.util.stream.Stream;
 
 /**
