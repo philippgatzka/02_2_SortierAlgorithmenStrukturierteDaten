@@ -7,7 +7,7 @@ import java.util.Objects;
  * @version 28.09.2021
  * Project: 02_2_SortierAlgorithmenStrukturierteDaten
  */
-public class Person{
+public class Person implements Comparable<Person>{
 
     private String firstname;
     private String lastname;
@@ -72,5 +72,14 @@ public class Person{
                 ", shoeSize=" + shoeSize +
                 ", age=" + age +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Person other) {
+        int lastnameVal = lastname.compareTo(other.lastname);
+        int firstnameVal = firstname.compareTo(other.firstname);
+        if (lastnameVal == 0)
+            return firstnameVal;
+        return lastnameVal;
     }
 }

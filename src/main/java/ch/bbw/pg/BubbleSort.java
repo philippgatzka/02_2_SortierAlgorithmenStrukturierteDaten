@@ -14,10 +14,7 @@ public class BubbleSort {
                 sorted = true;
                 Person first = people[i];
                 Person second = people[i + 1];
-                String s1 = first.getLastname();
-                String s2 = second.getLastname();
-                int val = s1.compareTo(s2);
-                boolean change = val > 0;
+                boolean change = first.compareTo(second) > 0;
                 if (change) {
                     people[i] = second;
                     people[i + 1] = first;

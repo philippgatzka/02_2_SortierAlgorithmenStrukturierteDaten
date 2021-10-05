@@ -10,10 +10,10 @@ public class App {
         Person[] people = prep();
 
         System.out.println("Unsorted");
-        Stream.of(people).limit(10).forEach(System.out::println);
+        Stream.of(people).limit(50).forEach(System.out::println);
         BubbleSort.sort(people);
         System.out.println("Sorted");
-        Stream.of(people).limit(10).forEach(System.out::println);
+        Stream.of(people).limit(50).forEach(System.out::println);
     }
 
     public static Person[] prep() {
