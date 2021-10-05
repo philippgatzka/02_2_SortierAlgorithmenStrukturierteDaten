@@ -1,5 +1,6 @@
 package ch.bbw.pg;
 
+import java.util.Comparator;
 import java.util.Objects;
 
 /**
@@ -14,6 +15,21 @@ public class Person implements Comparable<Person>{
     private double height;
     private int shoeSize;
     private int age;
+
+    public static Comparator<Person> comparatorA = (o1, o2) -> {
+        int shoeVal = Integer.compare(o1.shoeSize,o2.shoeSize);
+        if (shoeVal == 0)
+            return Double.compare(o1.height,o2.height);
+        return shoeVal;
+    };
+
+    public static Comparator<Person> comparatorB = (o1, o2) -> {
+        int nameVal = o1.lastname.compareTo(o2.lastname);
+        if (nameVal == 0)
+            return Integer.compare(o1.age,o2.age);
+        return nameVal;
+    };
+
 
     public Person(String firstname, String lastname, double height, int shoeSize, int age) {
         this.firstname = firstname;

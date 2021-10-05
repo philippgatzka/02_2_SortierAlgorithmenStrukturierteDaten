@@ -12,16 +12,11 @@ public class App {
 
         System.out.println("Unsorted");
         Stream.of(people).limit(50).forEach(System.out::println);
-        Arrays.sort(people, (o1, o2) -> {
-            int lastnameVal = o1.getLastname().compareTo(o2.getLastname());
-            int firstnameVal = o1.getFirstname().compareTo(o2.getFirstname());
-            if (lastnameVal == 0)
-                return firstnameVal;
-            return lastnameVal;
-        });
-
-
-        System.out.println("Sorted");
+        Arrays.sort(people,Person.comparatorA);
+        System.out.println("Sorted Shoe-size and Height");
+        Stream.of(people).limit(50).forEach(System.out::println);
+        Arrays.sort(people,Person.comparatorB);
+        System.out.println("Sorted with Name and Age");
         Stream.of(people).limit(50).forEach(System.out::println);
     }
 
