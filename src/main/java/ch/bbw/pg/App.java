@@ -1,5 +1,6 @@
 package ch.bbw.pg;
 
+import java.util.Arrays;
 import java.util.stream.Stream;
 
 /**
@@ -11,7 +12,15 @@ public class App {
 
         System.out.println("Unsorted");
         Stream.of(people).limit(50).forEach(System.out::println);
-        BubbleSort.sort(people);
+        Arrays.sort(people, (o1, o2) -> {
+            int lastnameVal = o1.getLastname().compareTo(o2.getLastname());
+            int firstnameVal = o1.getFirstname().compareTo(o2.getFirstname());
+            if (lastnameVal == 0)
+                return firstnameVal;
+            return lastnameVal;
+        });
+
+
         System.out.println("Sorted");
         Stream.of(people).limit(50).forEach(System.out::println);
     }
